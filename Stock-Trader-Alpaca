@@ -1,0 +1,20 @@
+import requests
+import json
+
+API_KEY = 'PKU8ZFJQHY0DCNZJ251X'
+API_SECRET = 'g1jeQg4SpnpPaR8mKuDyQOFGghyP4hQEQg3dLMWk'
+BASE_URL = 'https://paper-api.alpaca.markets'  
+
+headers = {
+    'APCA-API-KEY-ID': API_KEY,
+    'APCA-API-SECRET-KEY': API_SECRET
+}
+
+def get_account():
+    """Fetches the account information from Alpaca."""
+    url = f'{BASE_URL}/v2/account'
+    response = requests.get(url, headers=headers)
+    return response.json()
+
+account_info = get_account()
+
